@@ -18,29 +18,20 @@ class SearchBar extends React.Component{
     handleInputChange = (e) => {
         e.preventDefault();
         this.setState({ inputValue: e.target.value });
-        // console.log(e.target.value);
     }
 
-    handleSubmit = (e) => {
+    handleSubmit1 = (e) => {
         e.preventDefault();
-        this.props.handleSubmit(this.state.inputValue);
+        this.props.handleSubmit1(this.state.inputValue);
     }
 
     render(){
         return(
             <div className="SearchBarClass">
-                <form onSubmit={this.handleSubmit} noValidate >
-                    {/* <Grid container spacing={3}>
-                        <Grid item xs={11}>
-                            <Input placeholder="Search for a video" required={true} color="primary" fullWidth={true} onChange={this.handleInputChange} value={this.state.inputValue} />
-                        </Grid>
-                        <Grid item xs={1}>
-                            <IconButton color="primary" justify="center" aria-label="Search" onClick={this.handleSubmit} ><SearchIcon /></IconButton>
-                        </Grid>
-                    </Grid> */}
+                <form onSubmit={this.handleSubmit1} noValidate >
                     <Input endAdornment={
                         <InputAdornment position="end">
-                            <IconButton color="primary" justify="center" aria-label="Search" onClick={this.handleSubmit} ><SearchIcon /></IconButton>
+                            <IconButton color="primary" justify="center" aria-label="Search" onClick={this.handleSubmit1} ><SearchIcon /></IconButton>
                         </InputAdornment>
                     } placeholder="Search for a video" required={true} color="primary" fullWidth={true} onChange={this.handleInputChange} value={this.state.inputValue} />
                 </form>

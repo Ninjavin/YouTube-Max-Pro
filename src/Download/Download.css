@@ -1,0 +1,14 @@
+.masterClass{
+    height: 450px;
+    position: relative;
+
+}
+
+.downloadClass{
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

@@ -3,11 +3,12 @@ import axios from 'axios';
 import SearchBar from './SearchBar/SearchBar.js';
 import VideoLarge from './VideoLarge/VideoLarge';
 import Grid from '@material-ui/core/Grid';
-import VideoList from './VideoList/VideoList'
-
+import VideoList from './VideoList/VideoList';
+import Download from './Download/Download';
 import './App.css';
 
-const api_key = "AIzaSyAsjePitZCUF1L9FDbM4Rri0OPBsxlw7GQ";
+const dotenv = require('dotenv').config();
+const api_key = process.env.REACT_APP_API_KEY;
 
 class App extends React.Component{
 
@@ -20,11 +21,11 @@ class App extends React.Component{
     }
 
     componentDidMount(){
-        this.handleSubmit('Memories');
+        this.handleSubmit1('Memories');
     }
 
-    handleSubmit = (term) => {
-        
+    handleSubmit1 = (term) => {
+        this.setState({video : []})
         axios.get("https://www.googleapis.com/youtube/v3/search", {
             params:{
                 part: "snippet",
@@ -45,17 +46,22 @@ class App extends React.Component{
         }).catch((err) => console.log(err))
     }
 
+    selectedVideo = (v) => {
+        this.setState({
+            firstVideo: v
+        });
+    }
+
     render(){
         return(
             <div className="appDiv">
                 <br />
+                <SearchBar handleSubmit1={this.handleSubmit1} />      
                 <br />
-                <SearchBar handleSubmit={this.handleSubmit} />      
                 <br />
-                <br />
-                <Grid container spacing={3} >
+                <Grid container spacing={5} >
                     <Grid item xs={8}><VideoLarge playVideo={this.state.firstVideo} /></Grid>
-                    <Grid item xs={4}>Hello</Grid>
+                    <Grid item xs={4}><Download /></Grid>
                 </Grid>
                 <br />
                 <br />
