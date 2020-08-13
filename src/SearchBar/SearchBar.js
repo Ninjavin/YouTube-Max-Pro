@@ -33,7 +33,7 @@ class SearchBar extends React.Component{
                         <InputAdornment position="end">
                             <IconButton color="primary" justify="center" aria-label="Search" onClick={this.handleSubmit1} ><SearchIcon /></IconButton>
                         </InputAdornment>
-                    } placeholder="Search for a video" required={true} color="primary" fullWidth={true} onChange={this.handleInputChange} value={this.state.inputValue} />
+                    } placeholder="Search for a video here or..." required={true} color="primary" fullWidth={true} onChange={this.handleInputChange} value={this.state.inputValue} />
                 </form>
             </div>
         )

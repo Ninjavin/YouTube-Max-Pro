@@ -23,24 +23,18 @@ class Download extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            audioLink: "",
             videoLink: "",
             open: false,
             selectedIndex: 3
         }
         this.anchorRef = React.createRef();
         this.handleInputChangeVideoLink = this.handleInputChangeVideoLink.bind(this);
-        this.handleInputChangeAudioLink = this.handleInputChangeAudioLink.bind(this);
         this.handleSubmitAudio = this.handleSubmitAudio.bind(this);
         this.handleSubmitVideo = this.handleSubmitVideo.bind(this);
     }
 
     handleInputChangeVideoLink(event){
         this.setState({ videoLink: event.target.value })
-    }
-
-    handleInputChangeAudioLink(event){
-        this.setState({ audioLink: event.target.value })
     }
 
     downloadVideo = () => {
@@ -83,15 +77,13 @@ class Download extends React.Component{
         this.setState({ open: !this.state.open});
     }
 
-// <IconButton color="primary" justify="center" aria-label="Search" onClick={this.handleSubmitVideo} ><GetAppIcon /></IconButton>
-
     render(){
         return(
             
             <div className="masterClass">
             <div className="downloadClass">
-            
-                <Typography variant="h5" align="center" color="primary" component="h2">Download Audio/Video</Typography>
+                <Typography variant="overline" align="center" color="primary" display="block" gutterBottom>...paste a video link here</Typography>
+                <Typography variant="h5" align="center" color="primary" component="h2" gutterBottom>Download Audio/Video</Typography>
                 <br />
                 <br />
                 <div className="downloader">
