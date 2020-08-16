@@ -1,4 +1,4 @@
-# Downlodeon :point_down:
+# Downloadeon :point_down:
 [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://github.com/Ninjavin/YouTube-Max-Pro/graphs/contributors/)
 [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
