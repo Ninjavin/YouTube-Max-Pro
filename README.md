@@ -32,12 +32,12 @@ npm start
 
 You can help making this project better by reporting bugs or submitting pull requests.
 
-## Todo :eyes:
+<!-- ## Todo :eyes:
 
 * Add download bar showing the progress of download 
 * UI Improvements :heart:
 * Making Mobile View responsive
-* Releasing a Desktop App :triumph:
+* Releasing a Desktop App :triumph: -->
 
 ## Built Using :fire:
 
