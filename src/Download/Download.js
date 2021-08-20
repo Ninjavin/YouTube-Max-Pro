@@ -38,6 +38,7 @@ class Download extends React.Component{
     }
 
     downloadVideo = () => {
+console.log(optionsVideo[this.state.selectedIndex]);
         axios.get("http://localhost:5000/downloadVideo", {
             params: {videoLink: this.state.videoLink, qualityLabel: optionsVideo[this.state.selectedIndex]},
             responseType: "blob"

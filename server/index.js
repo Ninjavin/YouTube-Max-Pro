@@ -7,7 +7,7 @@ app.use(cors());
 
 const port = process.env.PORT || 5000;
 
-app.get('/downloadVideo', (req, res) => {
+app.get('/downloadVideo', async (req, res) => {
     // console.log(req.query);
     let videoLink  = req.query.videoLink;
     let qualityLabel = req.query.qualityLabel;
@@ -24,14 +24,28 @@ app.get('/downloadVideo', (req, res) => {
         quality = 136;
     }else
         quality = 137;
-    // console.log(videoLink, qualityLabel)
+    console.log(qualityLabel)
+
+// console.log(quality);
     res.header('Content-Disposition', 'attachment')
     res.header('Content-Type', 'video/mp4')
-    ytdl(videoLink, {quality: quality}).pipe(res)
+
+let videoID = ytdl.getURLVideoID(videoLink);
+let info = await ytdl.getInfo(videoID);
+// console.log(info);
+
+let videoName = info.player_response.videoDetails.title;
+console.log(videoName);
+let format = ytdl.chooseFormat(info.formats, { quality: quality });
+console.log(format);
+
+
+    ytdl(videoLink, {format: format}).pipe(res)
 })
 
 app.get('/downloadAudio', (req, res) => {
     let { audioLink } = req.query
+console.log(audioLink);
     res.header('Content-Disposition', 'attachment')
     res.header('Content-Type', 'audio/mpeg')
     ytdl(audioLink, {filter: 'audioonly'}).pipe(res)
